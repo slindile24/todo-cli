@@ -10,7 +10,7 @@ This project allows users to manage daily tasks directly from the terminal.
 - 📋 View all, completed, or pending tasks  
 - ✅ Mark tasks as completed  
 - ❌ Delete tasks  
-- 💾 Save and load tasks from a local database (JSON file)
+- 💾 Save and load tasks from a local database 
 
 ---
 
