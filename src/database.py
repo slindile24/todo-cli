@@ -10,17 +10,17 @@ def get_connection():
 get_connection()
 
 
-def add_task(title,description=None,due_date=None,priority=None):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute(
-        """ INSERT INTO tasks (title, description, due_date, priority)
-            VALUES (?, ?, ?, ?)""",
-            (title, description, due_date, priority)
-    )
-    conn.commit()
-    conn.close()
-add_task("Stand-up meeting","Meeting with team","2023-10-11","High")
+# def add_task(title,description=None,due_date=None,priority=None):
+#     conn = get_connection()
+#     cursor = conn.cursor()
+#     cursor.execute(
+#         """ INSERT INTO tasks (title, description, due_date, priority)
+#             VALUES (?, ?, ?, ?)""",
+#             (title, description, due_date, priority)
+#     )
+#     conn.commit()
+#     conn.close()
+# add_task("Study","Study with friend","2023-10-13","High")
 
 def get_all_tasks():
     conn = get_connection()
@@ -29,6 +29,8 @@ def get_all_tasks():
     tasks = cursor.fetchall()   # the fetchall() is used to retrieve data from the database,returns all rows
     conn.close()    # the fetchall() returns a list of tuples , where each tuple represents one row
     return tasks
+
+
 
 
 def display_tasks():
@@ -51,8 +53,30 @@ def display_tasks():
 
 """)
  
-display_tasks()
+# display_tasks()
 
 
-   
+def update_task(id):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""UPDATE tasks SET completed = 1 WHERE  id= ?""",(id,))  
+    conn.commit()    #this saves the change
+    conn.close()
 
+    #passed tuple with one element like this (id,) because if i pass it like this(id) then it's an integer   
+
+
+def delete_task(id):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""DELETE FROM tasks WHERE id = ?""",(id,))
+    conn.commit()
+    conn.close()
+
+
+
+#adding a test call to test my functions if they work
+if __name__ == "__main__":
+    # update_task(2)
+    delete_task(3)
+    print("Deleted task 3 from the table")
