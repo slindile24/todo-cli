@@ -10,17 +10,17 @@ def get_connection():
 get_connection()
 
 
-# def add_task(title,description=None,due_date=None,priority=None):
-#     conn = get_connection()
-#     cursor = conn.cursor()
-#     cursor.execute(
-#         """ INSERT INTO tasks (title, description, due_date, priority)
-#             VALUES (?, ?, ?, ?)""",
-#             (title, description, due_date, priority)
-#     )
-#     conn.commit()
-#     conn.close()
-# add_task("Study","Study with friend","2023-10-13","High")
+def add_task(title,description=None,due_date=None,priority=None):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute(
+        """ INSERT INTO tasks (title, description, due_date, priority)
+            VALUES (?, ?, ?, ?)""",
+            (title, description, due_date, priority)
+    )
+    conn.commit()
+    conn.close()
+add_task("Study","Study with friend","2023-10-13","High")
 
 def get_all_tasks():
     conn = get_connection()
