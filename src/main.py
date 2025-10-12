@@ -22,16 +22,29 @@ def display_menu():
             4. Delete task
             5. Exit
             """
+        
         print(menu)
-        input_res = input("Choose an option between 1-5:")
+        input_res = input("Choose an option between 1-5: ")
         if input_res == "1":
-            add_task("Study","Study with friend","2023-10-13","High")
+            title = input("Enter the task title: ")
+            description = input("Enter the task description: ")
+            due_date = input("Enter the task due_date(YYYY-MM-DD): ")
+            priority = input("Enter the task priority(Low,Medium,High): ")
+            add_task(title,description,due_date,priority)
+            print(f"Task '{title}' added successfully! ")
+
         elif input_res == "2":
             print(display_tasks())
+            
         elif input_res == "3":
-            print(update_task(6))
+            update_id = int(input("Enter the task ID you want to update: "))
+            update_task(update_id)
+            print(f"Task {update_id} is updated successfully and marked completed!")
         elif input_res == "4":
-            print(delete_task(1))
+            print(display_tasks())
+            delete_id = int(input("Enter the task ID you want to delete: "))
+            delete_task(delete_id)
+            print(f"Task {delete_id} deleted successfully!")
         elif input_res == "5":
             print("Exiting!")
             break
