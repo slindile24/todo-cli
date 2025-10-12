@@ -30,7 +30,7 @@ def display_menu():
             if not title:
                 print("Task title cannot be empty!")
                 continue
-            title = input("Enter the task title: ").strip()
+            # title = input("Enter the task title: ").strip()
 
             description = input("Enter the task description: ").strip()
             due_date = input("Enter the task due_date(YYYY-MM-DD): ").strip()

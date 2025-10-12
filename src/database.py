@@ -4,10 +4,10 @@ import sqlite3
 
 #This one is used later by other functions to open the same database and work with it.
 def get_connection():
-    conn =sqlite3.connect('data/tasks.db')
-    conn.execute("PRAGMA foreign_keys = ON;")
+    conn =sqlite3.connect('src/data/tasks.db')
+    conn.execute("PRAGMA foreign_keys = ON;") #makes sure foreign key constraints are enforced
     return conn
-get_connection()
+# get_connection()
 
 
 def add_task(title,description=None,due_date=None,priority=None):
@@ -20,7 +20,7 @@ def add_task(title,description=None,due_date=None,priority=None):
     )
     conn.commit()
     conn.close()
-add_task("Study","Study with friend","2023-10-13","High")
+
 
 def get_all_tasks():
     conn = get_connection()
@@ -78,5 +78,6 @@ def delete_task(id):
 #adding a test call to test my functions if they work
 if __name__ == "__main__":
     # update_task(2)
+    display_tasks()
     delete_task(3)
-    print("Deleted task 3 from the table")
+    # print("Deleted task 3 from the table")
