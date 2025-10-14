@@ -9,6 +9,7 @@ commands like
 5. Exit
  """
 from database import *
+from datetime import datetime
 
 
 def display_menu():
@@ -26,18 +27,42 @@ def display_menu():
         print(menu)
         input_res = input("Choose an option between 1-5: ")
         if input_res == "1":
-            title = input("Enter the task title: ").strip()
-            if not title:
-                print("Task title cannot be empty!")
-                continue
-            # title = input("Enter the task title: ").strip()
+            while True:
+                title = input("Enter the task title: ").strip()
+                if len(title) > 15:
+                    print("Title cannot exceed 15 characters")
+                    title = input("Enter the task title: ").strip()
+
+                if not title:
+                    print("Task title cannot be empty!")
+                    title = input("Enter the task title: ").strip()
+                break
+          
 
             description = input("Enter the task description: ").strip()
+
             due_date = input("Enter the task due_date(YYYY-MM-DD): ").strip()
+            while True:
+                try:
+                    due_date_str = datetime.strptime(due_date,"%Y-%m-%d")
+                    return due_date_str
+                except ValueError:
+                    print("Invalid date format! Enter the correct format(YYYY-MM-DD)!")
+                    due_date = input("Enter the task due_date(YYYY-MM-DD): ").strip()
+                break
+
+
+              
             priority = input("Enter the task priority(Low,Medium,High): ").strip()
 
-            if not due_date:
-                due_date = None
+
+            # if due_date != "YYYY-MM-DD":
+            #     print("Enter a correct date format")
+
+
+            # if not due_date:
+            #     due_date = None
+
             if not priority:
                 priority = "Low"
 
