@@ -9,11 +9,10 @@ commands like
 5. Exit
  """
 from database import *
-from datetime import datetime ,timedelta
+from datetime import datetime
 
 
 def display_menu():
-# (title, description, due_date, priority)
     while True:
         menu = """=== To-Do List ===
             1. Add a task
@@ -49,7 +48,7 @@ def display_menu():
                     if today<=due_date_input:
                         break
                     else:
-                        print("Set future date!")
+                        print("Set a present/future date!")
                 except ValueError:
                     print("Invalid date format! Enter correct date format!")
 
@@ -71,6 +70,7 @@ def display_menu():
 
         elif input_res == "3":
             try:
+                print(display_tasks())
                 update_id = int(input("Enter the task ID you want to update: "))
                 update_task(update_id)
                 print(f"Task {update_id} is updated successfully and marked completed!")
@@ -90,7 +90,7 @@ def display_menu():
             print("Exiting!")
             break
         else:
-            print("Invalid choice. Pick the correct choice from the menu")
+            print("Invalid choice. Pick the correct choice from the menu!")
 
 display_menu()
         

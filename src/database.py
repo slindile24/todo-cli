@@ -78,6 +78,5 @@ def delete_task(id):
 #adding a test call to test my functions if they work
 if __name__ == "__main__":
     # update_task(2)
-    display_tasks()
     delete_task(3)
     # print("Deleted task 3 from the table")
