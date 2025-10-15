@@ -9,11 +9,10 @@ commands like
 5. Exit
  """
 from database import *
-from datetime import datetime
+from datetime import datetime ,timedelta
 
 
 def display_menu():
-
 # (title, description, due_date, priority)
     while True:
         menu = """=== To-Do List ===
@@ -41,27 +40,25 @@ def display_menu():
 
             description = input("Enter the task description: ").strip()
 
-            due_date = input("Enter the task due_date(YYYY-MM-DD): ").strip()
+            today = str(datetime.today())
+            today = datetime.strptime(today.split(" ")[0], "%Y-%m-%d")
             while True:
+                due_date = input("Enter the task due_date(YYYY-MM-DD): ").strip()
                 try:
-                    due_date_str = datetime.strptime(due_date,"%Y-%m-%d")
-                    return due_date_str
+                    due_date_input = datetime.strptime(due_date,"%Y-%m-%d")
+                    if today<=due_date_input:
+                        break
+                    else:
+                        print("Set future date!")
                 except ValueError:
-                    print("Invalid date format! Enter the correct format(YYYY-MM-DD)!")
-                    due_date = input("Enter the task due_date(YYYY-MM-DD): ").strip()
-                break
+                    print("Invalid date format! Enter correct date format!")
+
+            print(f"Due date entered successfully: {due_date_input}")
 
 
-              
+            
             priority = input("Enter the task priority(Low,Medium,High): ").strip()
 
-
-            # if due_date != "YYYY-MM-DD":
-            #     print("Enter a correct date format")
-
-
-            # if not due_date:
-            #     due_date = None
 
             if not priority:
                 priority = "Low"
