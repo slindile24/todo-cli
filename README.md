@@ -1,6 +1,6 @@
 # 📝 To-Do CLI (Python)
 
-A simple command-line To-Do List manager built in Python.  
+A simple command-line To-Do List manager built in Python and SQL.  
 This project allows users to manage daily tasks directly from the terminal.
 
 ---
@@ -15,7 +15,7 @@ This project allows users to manage daily tasks directly from the terminal.
 ---
 
 ## 🧠 Project Goal
-This project was created to practice Python fundamentals, file handling, and persistence.  
+This project was created to practice Python fundamentals, SQL, and persistence.  
 It’s a beginner-friendly console application that demonstrates how data can be stored and retrieved between sessions.
 
 ---
