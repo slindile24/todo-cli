@@ -1,0 +1,27 @@
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual environment folders
+venv/
+.env/
+
+# VS Code settings
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+__pycache__/
+.env
+*.db
+*.sqlite
+*.log
+node_modules/
+dist/
+build/                                                                                                                      
