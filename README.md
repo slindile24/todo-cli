@@ -16,7 +16,7 @@ This project allows users to manage daily tasks directly from the terminal.
 
 ## 🧠 Project Goal
 This project was created to practice Python fundamentals, SQL, and persistence.  
-It’s a beginner-friendly console application that demonstrates how data can be stored and retrieved between sessions.
+It’s a beginner-friendly console application that demonstrates how data can be stored and retrieved between sessions. Practiced CRUD(Create, Read, Update, Delete)
 
 ---
 
